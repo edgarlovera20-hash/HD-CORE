@@ -1,0 +1,12 @@
+{
+  "name": "@hd/tailwind-preset",
+  "version": "0.1.0",
+  "private": false,
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "dependencies": {
+    "@hd/core-tokens": "file:../tokens"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://heavenlydreams.com.mx/contracts/audit.v1.json",
+  "title": "AuditEntry",
+  "version": "1.0.0",
+  "description": "Immutable audit record for all mutations, agent actions, and workflow executions in the HD ecosystem.",
+  "type": "object",
+  "required": ["auditId", "actorType", "actorId", "platform", "action", "resourceType", "resourceId", "correlationId", "severity", "createdAt", "metadata"],
+  "properties": {
+    "auditId": { "type": "string", "format": "uuid" },
+    "actorType": { "type": "string", "enum": ["user", "service_principal", "agent", "n8n_workflow", "system"] },
+    "actorId": { "type": "string" },
+    "platform": { "type": "string", "enum": ["HD-CORE", "HD-CRM", "HD-RH", "HD-BRAIN", "HD-OPERATIONS", "HD-ADMIN", "HD-WEB"] },
+    "action": { "type": "string", "enum": ["create", "update", "delete", "read", "login", "logout", "grant", "revoke", "trigger", "approve", "reject", "escalate"] },
+    "resourceType": { "type": "string" },
+    "resourceId": { "type": "string" },
+    "correlationId": { "type": "string", "format": "uuid" },
+    "requestId": { "type": "string" },
+    "ipAddress": { "type": "string" },
+    "userAgent": { "type": "string" },
+    "severity": { "type": "string", "enum": ["info", "warning", "critical", "security"] },
+    "metadata": { "type": "object" },
+    "createdAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

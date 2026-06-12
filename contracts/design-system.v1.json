@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://heavenlydreams.com.mx/contracts/design-system.v1.json",
+  "title": "HeavenlyDreams Design System",
+  "version": "1.0.0",
+  "colors": {
+    "primary": "#0066FF",
+    "primaryHover": "#0052CC",
+    "secondary": "#00A3FF",
+    "success": "#10B981",
+    "warning": "#F59E0B",
+    "error": "#EF4444",
+    "background": { "base": "#0A0F1C", "surface": "#111827", "elevated": "#161F33" },
+    "text": { "primary": "#F9FAFB", "secondary": "#E5E7EB", "muted": "#9CA3AF" },
+    "border": { "default": "#1F2937", "strong": "#334155" }
+  },
+  "typography": {
+    "fontSans": "Inter",
+    "fontHeading": "Poppins",
+    "fontMono": "JetBrains Mono",
+    "rules": {
+      "ui": "Inter for all UI elements, forms, tables, operational text",
+      "headings": "Poppins for headings, hero sections, marketing, branding"
+    }
+  },
+  "packages": {
+    "tokens": "@hd/core-tokens",
+    "ui": "@hd/core-ui"
+  },
+  "rule": "All platforms must import design tokens from @hd/core-tokens. Never redefine colors or typography in platform repos."
+}

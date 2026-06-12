@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://heavenlydreams.com.mx/contracts/knowledge-hub.v1.json",
+  "title": "HD Knowledge Hub Governance",
+  "version": "1.0.0",
+  "agentAccessRule": "Agents may only consume knowledge documents with status 'approved'.",
+  "lifecycle": ["draft", "review", "approved", "deprecated"],
+  "docTypes": ["sop", "playbook", "prompt", "policy", "runbook", "template", "training"],
+  "structure": {
+    "sops": "docs/knowledge/sops/",
+    "playbooks": "docs/knowledge/playbooks/",
+    "prompts": "docs/knowledge/prompts/",
+    "policies": "docs/knowledge/policies/",
+    "runbooks": "docs/knowledge/runbooks/",
+    "templates": "docs/knowledge/templates/"
+  },
+  "requiredMetadata": ["docId", "title", "type", "status", "platform", "version", "createdAt", "updatedAt"]
+}

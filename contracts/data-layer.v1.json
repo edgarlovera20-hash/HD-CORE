@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://heavenlydreams.com.mx/contracts/data-layer.v1.json",
+  "title": "HD Data Layer Strategy",
+  "version": "1.0.0",
+  "principle": "Each platform owns its transactional database. Cross-platform data flows via events, snapshots, or controlled APIs only.",
+  "forbidden": [
+    "direct_cross_platform_db_join",
+    "shared_transactional_db",
+    "direct_db_access_between_platforms",
+    "brain_agent_transactional_mutation"
+  ],
+  "kpiSnapshot": {
+    "requiredFields": ["snapshotId", "kpiId", "schemaVersion", "sourcePlatform", "producedAt", "correlationId", "value"],
+    "schemaVersion": "1.0.0"
+  },
+  "executiveDashboard": {
+    "owner": "HD-BRAIN",
+    "kpis": ["Revenue", "EBITDA", "MRR", "ARR", "CAC", "LTV", "Churn", "NPS", "CashFlow", "Growth", "Productividad", "TiempoContratacion", "Retencion", "Conversion", "ClientesMorosos", "RiesgosAbiertos"]
+  }
+}

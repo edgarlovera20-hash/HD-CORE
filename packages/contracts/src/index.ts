@@ -3,3 +3,8 @@ export * from "./events";
 export * from "./rbac";
 export * from "./agents";
 export * from "./automation";
+export * from "./audit";
+export * from "./design-system";
+export * from "./data-layer";
+export * from "./knowledge-hub";
+export * from "./n8n-workflows";

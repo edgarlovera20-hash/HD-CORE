@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://heavenlydreams.com.mx/contracts/n8n-workflows.v1.json",
+  "title": "HD Permitted n8n Workflow Catalog",
+  "version": "1.0.0",
+  "permitted": [
+    { "workflowId": "WEB_LEAD_TO_CRM", "ownerPlatform": "HD-WEB", "trigger": "form_submission", "humanReviewRequired": false },
+    { "workflowId": "CRM_OVERDUE_ALERT", "ownerPlatform": "HD-CRM", "trigger": "scheduled_daily", "humanReviewRequired": false },
+    { "workflowId": "CRM_PAYMENT_COMMITMENT_REMINDER", "ownerPlatform": "HD-CRM", "trigger": "commitment_date_minus_1d", "humanReviewRequired": false },
+    { "workflowId": "RH_CANDIDATE_FOLLOWUP_DRAFT", "ownerPlatform": "HD-RH", "trigger": "candidate_stage_change", "humanReviewRequired": true },
+    { "workflowId": "OPERATIONS_TASK_REMINDER", "ownerPlatform": "HD-OPERATIONS", "trigger": "task_due_minus_1h", "humanReviewRequired": false },
+    { "workflowId": "ADMIN_FINANCE_ANOMALY_ALERT", "ownerPlatform": "HD-ADMIN", "trigger": "anomaly_detected", "humanReviewRequired": true },
+    { "workflowId": "BRAIN_RISK_REVIEW_REQUEST", "ownerPlatform": "HD-BRAIN", "trigger": "risk_signal_threshold", "humanReviewRequired": true }
+  ],
+  "forbidden": [
+    "direct_role_or_permission_change",
+    "direct_client_debt_forgiveness",
+    "direct_candidate_hiring_or_rejection",
+    "direct_finance_record_deletion",
+    "direct_client_contact_without_consent",
+    "direct_platform_api_bypass",
+    "direct_database_mutation"
+  ],
+  "requiredFields": ["workflowId", "ownerPlatform", "servicePrincipalId", "correlationId", "idempotencyKey", "auditLog"]
+}
