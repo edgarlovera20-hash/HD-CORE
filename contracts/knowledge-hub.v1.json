@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12",
+  "title": "Heavenly Dreams Knowledge Hub",
+  "version": "1.0.0",
+  "description": "Organizational knowledge governance contract. AI agents may only use approved, versioned knowledge.",
+  "location": "HD-CORE/docs/knowledge/",
+  "categories": ["sop", "playbook", "prompt", "policy", "runbook", "template"],
+  "lifecycle": ["draft", "review", "approved", "deprecated"],
+  "aiVisibility": {
+    "draft": false,
+    "review": false,
+    "approved": true,
+    "deprecated": false
+  },
+  "documentMetadata": {
+    "required": ["documentId", "category", "version", "status", "ownerPlatform", "updatedAt", "aiUsageAllowed", "sensitivity"],
+    "properties": {
+      "documentId": { "type": "string" },
+      "category": { "type": "string", "enum": ["sop", "playbook", "prompt", "policy", "runbook", "template"] },
+      "version": { "type": "string" },
+      "status": { "type": "string", "enum": ["draft", "review", "approved", "deprecated"] },
+      "ownerPlatform": { "type": "string" },
+      "approvedBy": { "type": "string" },
+      "updatedAt": { "type": "string", "format": "date-time" },
+      "aiUsageAllowed": { "type": "boolean" },
+      "sensitivity": { "type": "string", "enum": ["public", "internal", "confidential"] }
+    }
+  },
+  "ragGovernance": {
+    "indexableStatus": ["approved"],
+    "indexableFlag": "aiUsageAllowed must be true",
+    "reindexOnApproval": true,
+    "citationRequired": "Agent answers must cite documentIds used",
+    "sourceAuthority": "HD-CORE defines which sources enter the index"
+  },
+  "rules": {
+    "agentConstraint": "AI agents only consume documents with status=approved and aiUsageAllowed=true.",
+    "templateConstraint": "CRM_AGENT and RH_AGENT drafts must be based on approved templates only.",
+    "versioning": "Every change produces a new version via PR."
+  }
+}

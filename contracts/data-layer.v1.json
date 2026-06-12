@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12",
+  "title": "Heavenly Dreams Data Layer",
+  "version": "1.0.0",
+  "description": "Unified executive data layer contract. Each platform keeps its operational database; the data layer consumes events, snapshots or controlled APIs only.",
+  "rules": {
+    "noDirectJoins": "Direct joins between productive databases are forbidden without an approved policy.",
+    "noCrossDbAccess": "No platform reads another platform's database directly.",
+    "noPii": "Aggregated snapshots must never contain full PII, only identifiers and aggregations.",
+    "financeApproval": "Financial snapshots require HD-ADMIN approval before exposure.",
+    "producerQuality": "Each producer platform is responsible for the validity of its snapshots."
+  },
+  "snapshotEnvelope": {
+    "required": ["snapshotId", "schemaVersion", "sourcePlatform", "producedAt", "correlationId", "metrics"],
+    "properties": {
+      "snapshotId": { "type": "string", "format": "uuid" },
+      "schemaVersion": { "type": "string" },
+      "sourcePlatform": { "type": "string", "enum": ["HD-WEB", "HD-RH", "HD-CRM", "HD-OPERATIONS", "HD-ADMIN", "HD-BRAIN"] },
+      "producedAt": { "type": "string", "format": "date-time" },
+      "correlationId": { "type": "string", "format": "uuid" },
+      "period": { "type": "string", "description": "e.g. 2026-06 or 2026-W24" },
+      "metrics": { "type": "object" }
+    }
+  },
+  "sources": [
+    { "domain": "crm", "platform": "HD-CRM", "mechanism": ["events", "snapshots"] },
+    { "domain": "rh", "platform": "HD-RH", "mechanism": ["events", "snapshots"] },
+    { "domain": "marketing", "platform": "HD-WEB", "mechanism": ["events"] },
+    { "domain": "sales", "platform": "HD-CRM", "mechanism": ["snapshots"] },
+    { "domain": "finance", "platform": "HD-ADMIN", "mechanism": ["approved-snapshots"] },
+    { "domain": "operations", "platform": "HD-OPERATIONS", "mechanism": ["events", "snapshots"] }
+  ],
+  "primaryConsumer": "HD-BRAIN",
+  "futureEvolution": ["data-warehouse", "bi", "machine-learning", "forecasting", "data-quality", "data-lineage"]
+}
