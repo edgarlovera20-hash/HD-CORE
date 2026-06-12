@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "owner": "HD-CORE",
+  "description": "n8n and automation policy for Heavenly Dreams ecosystem",
+  "orchestrator": "n8n",
+  "globalRules": {
+    "servicePrincipalRequired": true,
+    "rbacRequired": true,
+    "auditRequired": true,
+    "idempotencyRequired": true,
+    "correlationIdRequired": true,
+    "retryPolicyRequired": true,
+    "humanReviewRequiredForSensitiveActions": true
+  },
+  "allowedAutomationTypes": [
+    "lead routing",
+    "candidate notification draft",
+    "CRM follow-up reminder",
+    "overdue risk alert",
+    "operations task reminder",
+    "finance anomaly alert",
+    "brain recommendation review request",
+    "audit log enrichment"
+  ],
+  "forbiddenAutomationTypes": [
+    "direct role or permission change",
+    "direct client debt forgiveness",
+    "direct candidate hiring or rejection",
+    "direct finance record deletion",
+    "direct client contact without consent",
+    "direct bypass of platform API"
+  ],
+  "requiredMetadata": [
+    "automationId",
+    "workflowName",
+    "triggerSource",
+    "servicePrincipalId",
+    "correlationId",
+    "requestedBy",
+    "approvedBy",
+    "createdAt",
+    "executionStatus"
+  ],
+  "sensitiveActionsRequireApproval": [
+    "admin.roles.update",
+    "admin.permissions.update",
+    "finance.payment.recorded",
+    "crm.conversation.started",
+    "crm.payment_commitment.created",
+    "rh.hiring.final_decision",
+    "brain.automation.requested"
+  ]
+}

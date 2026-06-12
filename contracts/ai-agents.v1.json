@@ -1,0 +1,130 @@
+{
+  "version": "1.0.0",
+  "owner": "HD-CORE",
+  "description": "AI agent governance contract for Heavenly Dreams ecosystem",
+  "globalRules": {
+    "rbacRequired": true,
+    "auditRequired": true,
+    "leastPrivilegeRequired": true,
+    "humanReviewRequiredForSensitiveActions": true,
+    "agentsCannotBypassPlatformBoundaries": true
+  },
+  "agents": {
+    "RH_AGENT": {
+      "platform": "HD-RH",
+      "purpose": "Assist recruitment workflows, candidate summaries, interview preparation and RH reports.",
+      "allowed": [
+        "summarize candidate profiles",
+        "prepare interview questions",
+        "recommend follow-up actions",
+        "draft internal RH notes",
+        "generate RH reports"
+      ],
+      "forbidden": [
+        "hire candidates directly",
+        "reject candidates directly",
+        "modify global permissions",
+        "access CRM debt data",
+        "contact candidates outside approved channels"
+      ],
+      "humanReviewRequired": [
+        "candidate rejection",
+        "candidate hiring recommendation",
+        "sensitive candidate notes"
+      ]
+    },
+    "CRM_AGENT": {
+      "platform": "HD-CRM",
+      "purpose": "Assist client follow-up, overdue account prioritization, message drafting and CRM summaries.",
+      "allowed": [
+        "prioritize follow-up tasks",
+        "summarize client history",
+        "draft approved messages",
+        "detect overdue account risk",
+        "recommend escalation to human"
+      ],
+      "forbidden": [
+        "contact clients without consent",
+        "send unapproved messages",
+        "make payment promises",
+        "forgive debt",
+        "change finance records",
+        "access RH candidate data"
+      ],
+      "humanReviewRequired": [
+        "client contact",
+        "payment commitment",
+        "overdue escalation",
+        "message outside approved template"
+      ]
+    },
+    "SUPERVISOR_AGENT": {
+      "platform": "HD-OPERATIONS",
+      "purpose": "Assist supervisors with operational tasks, agenda, productivity and internal alerts.",
+      "allowed": [
+        "summarize operational tasks",
+        "detect productivity bottlenecks",
+        "recommend task prioritization",
+        "generate supervisor reports"
+      ],
+      "forbidden": [
+        "change finance records",
+        "manage CRM conversations",
+        "modify roles or permissions",
+        "override employee decisions without approval"
+      ],
+      "humanReviewRequired": [
+        "task reassignment",
+        "disciplinary recommendation",
+        "operational escalation"
+      ]
+    },
+    "FINANCE_AGENT": {
+      "platform": "HD-ADMIN",
+      "purpose": "Assist with finance summaries, anomaly detection, payment review and audit preparation.",
+      "allowed": [
+        "summarize finance records",
+        "detect anomalies",
+        "prepare finance reports",
+        "recommend audit review"
+      ],
+      "forbidden": [
+        "record payments directly",
+        "delete finance records",
+        "change user permissions",
+        "forgive balances",
+        "contact clients directly"
+      ],
+      "humanReviewRequired": [
+        "payment record",
+        "finance adjustment",
+        "audit escalation",
+        "balance correction"
+      ]
+    },
+    "BRAIN_AGENT": {
+      "platform": "HD-BRAIN",
+      "purpose": "Correlate ecosystem signals, detect risks, generate recommendations and request reviewed automation.",
+      "allowed": [
+        "analyze cross-platform KPIs",
+        "detect risk signals",
+        "create recommendations",
+        "record decision logs",
+        "request reviewed automation"
+      ],
+      "forbidden": [
+        "bypass RBAC",
+        "modify transactional records directly",
+        "contact clients directly",
+        "hire or reject candidates",
+        "change roles or permissions"
+      ],
+      "humanReviewRequired": [
+        "automation request",
+        "critical risk escalation",
+        "executive recommendation",
+        "cross-platform action"
+      ]
+    }
+  }
+}
