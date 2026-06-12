@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  id            String   @id @default(uuid())
+  fullName      String
+  phone         String?
+  email         String?
+  status        String
+  consentStatus String  @default("unknown")
+  assignedTo    String?
+  riskScore     Int     @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  followups     FollowupTask[]
+  commitments   PaymentCommitment[]
+}
+
+model FollowupTask {
+  id        String   @id @default(uuid())
+  clientId  String
+  assignedTo String
+  dueAt     DateTime
+  status    String   @default("pending")
+  notes     String?
+  createdAt DateTime @default(now())
+
+  client    Client   @relation(fields: [clientId], references: [id])
+}
+
+model PaymentCommitment {
+  id        String   @id @default(uuid())
+  clientId  String
+  amount    Decimal
+  dueAt     DateTime
+  status    String   @default("open")
+  createdAt DateTime @default(now())
+
+  client    Client   @relation(fields: [clientId], references: [id])
+}
