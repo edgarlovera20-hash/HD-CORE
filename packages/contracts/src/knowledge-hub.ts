@@ -1,27 +1,32 @@
-export type HdKnowledgeCategory =
-  | "sop"
-  | "playbook"
-  | "prompt"
-  | "policy"
-  | "runbook"
-  | "template";
+export type KnowledgeDocStatus = "draft" | "review" | "approved" | "deprecated";
+export type KnowledgeDocType = "sop" | "playbook" | "prompt" | "policy" | "runbook" | "template" | "training";
 
-export type HdKnowledgeStatus = "draft" | "review" | "approved" | "deprecated";
-
-export type HdKnowledgeSensitivity = "public" | "internal" | "confidential";
-
-export interface HdKnowledgeDocument {
-  documentId: string;
-  category: HdKnowledgeCategory;
+export interface HdKnowledgeDoc {
+  docId: string;
+  title: string;
+  type: KnowledgeDocType;
+  status: KnowledgeDocStatus;
+  platform: string;
   version: string;
-  status: HdKnowledgeStatus;
-  ownerPlatform: string;
-  approvedBy?: string;
+  tags: string[];
+  createdAt: string;
   updatedAt: string;
-  aiUsageAllowed: boolean;
-  sensitivity: HdKnowledgeSensitivity;
+  approvedBy?: string;
+  approvedAt?: string;
+  deprecatedAt?: string;
+  content?: string;
 }
 
-export function isAgentUsableKnowledge(doc: HdKnowledgeDocument): boolean {
-  return doc.status === "approved" && doc.aiUsageAllowed === true;
+export interface HdKnowledgeHubPolicy {
+  version: string;
+  agentAccessRule: string;
+  lifecycle: KnowledgeDocStatus[];
+  requiredForAgentConsumption: KnowledgeDocStatus;
 }
+
+export const hdKnowledgeHubPolicy: HdKnowledgeHubPolicy = {
+  version: "1.0.0",
+  agentAccessRule: "Agents may only consume knowledge with status 'approved'.",
+  lifecycle: ["draft", "review", "approved", "deprecated"],
+  requiredForAgentConsumption: "approved",
+};

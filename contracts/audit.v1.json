@@ -1,51 +1,26 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://heavenlydreams.com.mx/contracts/audit.v1.json",
   "title": "AuditEntry",
   "version": "1.0.0",
-  "description": "Enterprise audit entry contract for the Heavenly Dreams ecosystem. Every mutation, agent action, n8n workflow execution and permission change must produce an AuditEntry.",
+  "description": "Immutable audit record for all mutations, agent actions, and workflow executions in the HD ecosystem.",
   "type": "object",
-  "required": [
-    "auditId",
-    "actorType",
-    "actorId",
-    "platform",
-    "action",
-    "resourceType",
-    "resourceId",
-    "correlationId",
-    "metadata",
-    "createdAt",
-    "severity"
-  ],
+  "required": ["auditId", "actorType", "actorId", "platform", "action", "resourceType", "resourceId", "correlationId", "severity", "createdAt", "metadata"],
   "properties": {
     "auditId": { "type": "string", "format": "uuid" },
-    "actorType": {
-      "type": "string",
-      "enum": ["user", "service_principal", "agent", "n8n_workflow", "system"]
-    },
+    "actorType": { "type": "string", "enum": ["user", "service_principal", "agent", "n8n_workflow", "system"] },
     "actorId": { "type": "string" },
-    "platform": {
-      "type": "string",
-      "enum": ["HD-CORE", "HD-CRM", "HD-RH", "HD-BRAIN", "HD-OPERATIONS", "HD-ADMIN", "HD-WEB"]
-    },
-    "action": { "type": "string", "description": "Verb describing the action: create, update, delete, read, login, logout, grant, revoke, trigger, approve, reject" },
+    "platform": { "type": "string", "enum": ["HD-CORE", "HD-CRM", "HD-RH", "HD-BRAIN", "HD-OPERATIONS", "HD-ADMIN", "HD-WEB"] },
+    "action": { "type": "string", "enum": ["create", "update", "delete", "read", "login", "logout", "grant", "revoke", "trigger", "approve", "reject", "escalate"] },
     "resourceType": { "type": "string" },
     "resourceId": { "type": "string" },
-    "correlationId": { "type": "string", "format": "uuid", "description": "Links related events across platforms" },
-    "ipAddress": { "type": "string", "format": "ipv4" },
+    "correlationId": { "type": "string", "format": "uuid" },
+    "requestId": { "type": "string" },
+    "ipAddress": { "type": "string" },
     "userAgent": { "type": "string" },
+    "severity": { "type": "string", "enum": ["info", "warning", "critical", "security"] },
     "metadata": { "type": "object" },
-    "createdAt": { "type": "string", "format": "date-time" },
-    "severity": {
-      "type": "string",
-      "enum": ["info", "warning", "critical", "security"]
-    }
+    "createdAt": { "type": "string", "format": "date-time" }
   },
-  "rules": {
-    "immutability": "AuditEntry records must never be deleted or mutated after creation.",
-    "correlationId": "Every request crossing a platform boundary must carry a correlationId.",
-    "agentActions": "All agent-initiated mutations must produce an AuditEntry with actorType=agent.",
-    "n8nWorkflows": "All n8n workflow executions must produce an AuditEntry with actorType=n8n_workflow.",
-    "retention": "AuditEntry records must be retained for a minimum of 2 years."
-  }
+  "additionalProperties": false
 }

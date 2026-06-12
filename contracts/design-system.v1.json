@@ -1,44 +1,31 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12",
-  "title": "Heavenly Dreams Design System",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://heavenlydreams.com.mx/contracts/design-system.v1.json",
+  "title": "HeavenlyDreams Design System",
   "version": "1.0.0",
-  "description": "Official visual identity contract. All platforms consume these tokens via @hd/core-tokens. No platform may define its own palette or typography.",
-  "typography": {
-    "ui": "Inter",
-    "headings": "Poppins",
-    "rule": "Inter for UI, forms, tables and operational text. Poppins for headings, hero sections, marketing and branding."
-  },
   "colors": {
     "primary": "#0066FF",
+    "primaryHover": "#0052CC",
     "secondary": "#00A3FF",
     "success": "#10B981",
     "warning": "#F59E0B",
     "error": "#EF4444",
-    "background": {
-      "base": "#0A0F1C",
-      "surface": "#111827",
-      "elevated": "#161F33"
-    },
-    "text": {
-      "primary": "#F9FAFB",
-      "secondary": "#E5E7EB",
-      "muted": "#9CA3AF"
-    },
-    "border": {
-      "subtle": "#1F2937",
-      "strong": "#334155"
+    "background": { "base": "#0A0F1C", "surface": "#111827", "elevated": "#161F33" },
+    "text": { "primary": "#F9FAFB", "secondary": "#E5E7EB", "muted": "#9CA3AF" },
+    "border": { "default": "#1F2937", "strong": "#334155" }
+  },
+  "typography": {
+    "fontSans": "Inter",
+    "fontHeading": "Poppins",
+    "fontMono": "JetBrains Mono",
+    "rules": {
+      "ui": "Inter for all UI elements, forms, tables, operational text",
+      "headings": "Poppins for headings, hero sections, marketing, branding"
     }
   },
-  "tokens": ["colors", "typography", "spacing", "radius", "shadows", "zIndex", "breakpoints", "motion"],
-  "components": [
-    "Button", "Input", "Textarea", "Select", "Table", "Card", "Sidebar", "Navbar", "Footer",
-    "Modal", "Dialog", "Toast", "Badge", "Tabs", "Charts", "DashboardLayout", "FormField",
-    "DataTable", "EmptyState", "LoadingState", "ErrorState"
-  ],
-  "rules": {
-    "singleSource": "Palette and typography changes happen only in HD-CORE via PR.",
-    "noLocalStyles": "No repo defines its own colors, fonts or spacing outside tokens.",
-    "webExtension": "HD-WEB may extend with marketing styles but must start from base tokens.",
-    "newComponents": "New shared components are proposed first in packages/ui."
-  }
+  "packages": {
+    "tokens": "@hd/core-tokens",
+    "ui": "@hd/core-ui"
+  },
+  "rule": "All platforms must import design tokens from @hd/core-tokens. Never redefine colors or typography in platform repos."
 }
