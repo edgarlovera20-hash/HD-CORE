@@ -15,6 +15,7 @@ export const hdPermissions = {
   rolesAll: "roles.*",
   permissionsAll: "permissions.*",
   auditView: "audit.view",
+
   crmClientsView: "crm.clients.view",
   crmClientsCreate: "crm.clients.create",
   crmClientsUpdate: "crm.clients.update",
@@ -22,11 +23,14 @@ export const hdPermissions = {
   crmConversationsReply: "crm.conversations.reply",
   crmConversationsReview: "crm.conversations.review",
   crmReportsView: "crm.reports.view",
+
   rhCandidatesRead: "rh.candidates.read",
   rhReportsView: "rh.reports.view",
+
   operationsReportsView: "operations.reports.view",
   operationsTasksCreate: "operations.tasks.create",
   operationsTasksUpdate: "operations.tasks.update",
+
   brainViewGlobalKpis: "brain.view_global_kpis",
   brainViewRiskAlerts: "brain.view_risk_alerts",
   brainViewAuditLogs: "brain.view_audit_logs",
