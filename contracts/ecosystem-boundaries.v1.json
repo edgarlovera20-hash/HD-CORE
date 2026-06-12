@@ -6,139 +6,44 @@
     "HD-WEB": {
       "domain": "heavenlydreams.com.mx",
       "purpose": "Corporate website, public marketing, SEO, public forms and lead generation.",
-      "allowed": [
-        "public pages",
-        "landing pages",
-        "SEO content",
-        "lead capture",
-        "public contact forms",
-        "redirects to other platforms"
-      ],
-      "forbidden": [
-        "user administration",
-        "candidate management",
-        "client debt management",
-        "finance operations",
-        "internal dashboards",
-        "direct AI automation execution"
-      ]
+      "allowed": ["public pages", "landing pages", "SEO content", "lead capture", "public contact forms", "redirects to other platforms"],
+      "forbidden": ["user administration", "candidate management", "client debt management", "finance operations", "internal dashboards", "direct AI automation execution"]
     },
     "HD-RH": {
       "domain": "rh.heavenlydreams.com.mx",
       "purpose": "Recruitment, candidates, interviews, evaluations and hiring workflow.",
-      "allowed": [
-        "job posts",
-        "candidate records",
-        "interviews",
-        "evaluations",
-        "hiring workflow",
-        "RH reports"
-      ],
-      "forbidden": [
-        "client debt management",
-        "finance treasury",
-        "global role administration",
-        "control tower decisions"
-      ]
+      "allowed": ["job posts", "candidate records", "interviews", "evaluations", "hiring workflow", "RH reports"],
+      "forbidden": ["client debt management", "finance treasury", "global role administration", "control tower decisions"]
     },
     "HD-CRM": {
       "domain": "crm.heavenlydreams.com.mx",
       "purpose": "Client management, follow-up, overdue accounts, conversations and payment commitments.",
-      "allowed": [
-        "client records",
-        "new clients",
-        "active clients",
-        "overdue clients",
-        "follow-up tasks",
-        "conversation history",
-        "approved message templates",
-        "payment commitments",
-        "CRM reports"
-      ],
-      "forbidden": [
-        "direct hiring decisions",
-        "global permissions administration",
-        "finance treasury ownership",
-        "unreviewed autonomous client contact"
-      ]
+      "allowed": ["client records", "new clients", "active clients", "overdue clients", "follow-up tasks", "conversation history", "approved message templates", "payment commitments", "CRM reports"],
+      "forbidden": ["direct hiring decisions", "global permissions administration", "finance treasury ownership", "unreviewed autonomous client contact"]
     },
     "HD-OPERATIONS": {
       "domain": "app.heavenlydreams.com.mx",
       "purpose": "Daily operations, tasks, agenda, productivity and supervisor workbench.",
-      "allowed": [
-        "operational tasks",
-        "agenda",
-        "productivity snapshots",
-        "internal notifications",
-        "supervisor reports"
-      ],
-      "forbidden": [
-        "CRM debt collection ownership",
-        "global user administration",
-        "finance treasury",
-        "control tower decisions"
-      ]
+      "allowed": ["operational tasks", "agenda", "productivity snapshots", "internal notifications", "supervisor reports"],
+      "forbidden": ["CRM debt collection ownership", "global user administration", "finance treasury", "control tower decisions"]
     },
     "HD-ADMIN": {
       "domain": "admin.heavenlydreams.com.mx",
       "purpose": "Administration, users, roles, permissions, finance, audit, integrations and BI.",
-      "allowed": [
-        "users",
-        "roles",
-        "permissions",
-        "finance records",
-        "audit records",
-        "integrations",
-        "BI administration"
-      ],
-      "forbidden": [
-        "public marketing pages",
-        "candidate evaluation workflow",
-        "CRM conversations as primary owner",
-        "direct control tower recommendations"
-      ]
+      "allowed": ["users", "roles", "permissions", "finance records", "audit records", "integrations", "BI administration"],
+      "forbidden": ["public marketing pages", "candidate evaluation workflow", "CRM conversations as primary owner", "direct control tower recommendations"]
     },
     "HD-BRAIN": {
       "domain": "brain.heavenlydreams.com.mx",
       "purpose": "Control tower, global KPIs, risk signals, recommendations, decision logs and reviewed automation requests.",
-      "allowed": [
-        "global KPI snapshots",
-        "risk detection",
-        "recommendations",
-        "decision logs",
-        "agent run logs",
-        "reviewed automation requests"
-      ],
-      "forbidden": [
-        "bypassing RBAC",
-        "directly modifying transactional domain data",
-        "directly contacting clients",
-        "directly hiring or rejecting candidates",
-        "directly changing roles or permissions"
-      ]
+      "allowed": ["global KPI snapshots", "risk detection", "recommendations", "decision logs", "agent run logs", "reviewed automation requests"],
+      "forbidden": ["bypassing RBAC", "directly modifying transactional domain data", "directly contacting clients", "directly hiring or rejecting candidates", "directly changing roles or permissions"]
     },
     "HD-CORE": {
       "domain": "core.heavenlydreams.com.mx",
       "purpose": "Shared contracts, RBAC, types, validation, design tokens, API client and architecture governance.",
-      "allowed": [
-        "shared contracts",
-        "platform definitions",
-        "events",
-        "roles",
-        "permissions",
-        "validation",
-        "types",
-        "design tokens",
-        "shared API client",
-        "governance rules"
-      ],
-      "forbidden": [
-        "owning CRM clients",
-        "owning RH candidates",
-        "owning finance transactions",
-        "owning operational tasks",
-        "owning public website content"
-      ]
+      "allowed": ["shared contracts", "platform definitions", "events", "roles", "permissions", "validation", "types", "design tokens", "shared API client", "governance rules"],
+      "forbidden": ["owning CRM clients", "owning RH candidates", "owning finance transactions", "owning operational tasks", "owning public website content"]
     }
   }
 }

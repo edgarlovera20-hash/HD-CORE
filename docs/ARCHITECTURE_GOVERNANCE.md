@@ -14,17 +14,7 @@ El ecosistema Heavenly Dreams está dividido en siete plataformas. Cada platafor
 
 ## Solución Propuesta
 
-HD-CORE será la fuente oficial para:
-
-- Plataformas.
-- Eventos.
-- Roles.
-- Permisos.
-- Acciones sensibles.
-- Tipos compartidos.
-- Validaciones.
-- Estrategia de dependencias.
-- Reglas de arquitectura.
+HD-CORE será la fuente oficial para plataformas, eventos, roles, permisos, acciones sensibles, tipos compartidos, validaciones, dependencias y reglas de arquitectura.
 
 ## Reglas obligatorias
 
@@ -41,10 +31,4 @@ HD-CORE será la fuente oficial para:
 
 ## Criterio de aprobación
 
-Una PR debe rechazarse si:
-
-- Duplica contratos de HD-CORE.
-- Mezcla dominios.
-- Bypassea RBAC.
-- Agrega acciones sensibles sin auditoría.
-- Permite a un agente IA modificar datos críticos sin control.
+Una PR debe rechazarse si duplica contratos de HD-CORE, mezcla dominios, evade RBAC, agrega acciones sensibles sin auditoría o permite a un agente IA modificar datos críticos sin control.
