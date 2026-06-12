@@ -3,12 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "lint": "echo TODO lint",
     "test": "echo TODO test",
+    "typecheck": "tsc --noEmit",
     "build": "echo TODO build"
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "typescript": " is required);
   }
+}
+
+export function isEmail(value: string): boolean {
+  return /s]+[s]+.[s]+$/.test(value);
+}
+
+export function isPhoneLike(value: string): boolean {
+  return /-s]{8,20}$/.test(value);
 }
