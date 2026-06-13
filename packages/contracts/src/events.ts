@@ -22,7 +22,17 @@ export const hdEvents = {
   brainAutomationRequested: "brain.automation.requested",
   brainDecisionRecorded: "brain.decision.recorded",
 
-  auditActionRecorded: "audit.action.recorded"
+  auditActionRecorded: "audit.action.recorded",
+
+  aiTaskCreated: "ai.task.created",
+  aiTaskCompleted: "ai.task.completed",
+  aiTaskFailed: "ai.task.failed",
+  aiTaskNeedsApproval: "ai.task.needs_approval",
+  aiTaskApproved: "ai.task.approved",
+  aiTaskRejected: "ai.task.rejected",
+  aiAgentRunStarted: "ai.agent.run.started",
+  aiMemorySaved: "ai.memory.saved",
+  aiDocumentAnalyzed: "ai.document.analyzed"
 } as const;
 
 export type HdEventName = typeof hdEvents[keyof typeof hdEvents];
@@ -34,7 +44,7 @@ export interface HdEventEnvelope<TPayload = Record<string, unknown>> {
   occurredAt: string;
   producer: string;
   actor: {
-    type: "user" | "service_principal" | "system";
+    type: "user" | "service_principal" | "agent" | "n8n_workflow" | "system";
     id: string;
   };
   correlationId: string;
