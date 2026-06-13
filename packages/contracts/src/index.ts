@@ -8,3 +8,4 @@ export * from "./design-system";
 export * from "./data-layer";
 export * from "./knowledge-hub";
 export * from "./n8n-workflows";
+export * from "./ai-gateway";
